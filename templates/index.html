@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face Detection</title>
+    <style>
+        button{
+            text-align: center;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            top: 5%;
+            width: 100px;
+            height: 30px;
+            border-radius: 200px;
+            border-width: 1px;
+            background-color:rgb(20, 167, 241);
+
+        }
+        h1{
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            top: 10%;
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+        h2{
+            position: absolute;
+            left: 10%;
+            transform: translate(-50%,-50%);
+            top: 10%;
+            font-family: 'Courier New', Courier, monospace;
+            
+        }
+        p{
+            position: relative;
+            left: 0%;
+            margin-top: 10%;
+            
+        }
+        .img{
+
+            width: 700px;
+            height: 500px;
+            background-color: red;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            top: 60%;
+            object-fit: cover;
+            display: none ;
+          
+        }
+        img{
+
+            width: 100%;
+            height: 100%;
+        }
+
+    </style>
+    <script>
+        let f = 0;
+        function toggle() {
+            if(f === 0) {
+                // change label of button to reset 
+                // script of python code
+                document.querySelector("button").innerHTML = "Upload Image";
+                document.querySelector('h1').innerHTML = "";
+                document.querySelector('.img').style.display = "none"         
+                f = 1
+                
+            } else {
+                window.location.href = "/output"
+                {% comment %} document.querySelector('h1').innerHTML = "Number of persons: {{total_faces}}"; {% endcomment %}
+                document.querySelector("button").innerHTML = "Reset";
+                {% comment %} document.querySelector('.img').style.display = "initial" {% endcomment %}
+                // change label of button to Upload 
+                {% comment %} let input = document.createElement('input');
+                input.type = 'file';
+                    input.onchange = _ => {
+                        // you can use this method to get file and perform respective operations
+                        let files =   Array.from(input.files);
+                        console.log(files);
+                    };
+                    input.click();  {% endcomment %}
+                // clear the image and label
+                f = 0
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Face Detection Application</h1>
+    <button onclick=toggle()>Upload Image</button>
+    <h1></h1>
+    <div class="img">
+        <img src="static/out.jpeg" alt="" srcset="">
+    </div>
+    <h2 style='align:left'>About Application</h2>
+    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio distinctio quis iusto natus quibusdam explicabo inventore esse dignissimos saepe quia itaque quos similique, quae voluptatem, perspiciatis error tenetur accusantium, dolor in. Quisquam dolore delectus unde sunt esse recusandae quas fugiat aut impedit ut, corporis deserunt iure tenetur veritatis earum magnam possimus non eveniet expedita! Est recusandae quia, excepturi illo rerum repellat odit et qui voluptatibus a iure tempora cupiditate nesciunt ducimus maiores praesentium unde delectus natus! Quae saepe corporis placeat nostrum veniam eius itaque, aliquam modi obcaecati provident, architecto esse facilis praesentium error at dolorem alias beatae, eos maxime neque.
+    </p>
+
+    <script>
+        if ({{flag}} === 1) {
+            document.querySelector('h1').innerHTML = "Number of persons: {{total_faces}}";
+            document.querySelector("button").innerHTML = "Reset";
+            document.querySelector('.img').style.display = "initial"
+        } else {
+            document.querySelector("button").innerHTML = "Upload Image";
+            document.querySelector('h1').innerHTML = "";
+            document.querySelector('.img').style.display = "none"
+        }
+    </script>
+</body>
+</html>
