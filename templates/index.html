@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Face Detection</title>
     <style>
+        body{
+
+            background-color: rgb(161 161 170);
+        }
         button{
             text-align: center;
             position: absolute;
@@ -16,10 +20,10 @@
             height: 30px;
             border-radius: 200px;
             border-width: 1px;
-            background-color:rgb(20, 167, 241);
+            background-color: rgb(244 63 94);
 
         }
-        h1{
+        .abc{
             position: absolute;
             left: 50%;
             transform: translate(-50%,-50%);
@@ -60,6 +64,35 @@
             height: 100%;
         }
 
+        #about
+        {
+
+        width: 250px;
+        height: 300px;
+        background-color: rgb(214 211 209);
+        position: absolute;
+        top: 20%;
+        left: 5%;
+       
+        }
+
+        .hhh{
+
+        position: absolute;
+        top: -20%;
+        left: 50%;
+
+        }
+        p{
+            
+            padding:0 2vw;
+            font-size: 15px;
+            font-weight: 100;
+            font-family: "Gilroy";
+            color: #333;
+        }
+        
+
     </style>
     <script>
         let f = 0;
@@ -93,15 +126,27 @@
     </script>
 </head>
 <body>
-    <h1>Face Detection Application</h1>
+    <h1 class="abc">Face Detection Application</h1>
     <button onclick=toggle()>Upload Image</button>
     <h1></h1>
     <div class="img">
         <img src="static/out.jpeg" alt="" srcset="">
     </div>
-    <h2 style='align:left'>About Application</h2>
-    <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio distinctio quis iusto natus quibusdam explicabo inventore esse dignissimos saepe quia itaque quos similique, quae voluptatem, perspiciatis error tenetur accusantium, dolor in. Quisquam dolore delectus unde sunt esse recusandae quas fugiat aut impedit ut, corporis deserunt iure tenetur veritatis earum magnam possimus non eveniet expedita! Est recusandae quia, excepturi illo rerum repellat odit et qui voluptatibus a iure tempora cupiditate nesciunt ducimus maiores praesentium unde delectus natus! Quae saepe corporis placeat nostrum veniam eius itaque, aliquam modi obcaecati provident, architecto esse facilis praesentium error at dolorem alias beatae, eos maxime neque.
-    </p>
+    <div id="about">
+        <h2 class="hhh">About Application</h2>
+        <p>Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. 
+        </p>
+    </div>
+  
+  
 
     <script>
         if ({{flag}} === 1) {
