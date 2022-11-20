@@ -32,7 +32,7 @@ def detect():
         cv2.putText(image, "Number of faces detected: " + str(faces.shape[0]), (0,image.shape[0] -10), cv2.FONT_HERSHEY_TRIPLEX, 0.5,  (0,0,0), 1)
     
         # cv2.imshow('Image with faces',image)
-        cv2.imwrite("/media/hardik/49F9-340F/Final_project/DjangoProjectFinal/static/out.jpeg", image)  
+        cv2.imwrite("/home/hardik/Face-Detection-Minor1/static/out.jpeg", image)  
         cv2.waitKey(0)
         cv2.destroyAllWindows()
     return total_faces
