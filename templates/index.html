@@ -115,6 +115,17 @@
         color: rgb(107, 17, 234);
     }
 </style>
+<script>
+    if ({{flag}} === 1) {
+        document.querySelector('h1').innerHTML = "Number of persons: {{total_faces}}";
+        document.querySelector("button").innerHTML = "Reset";
+        document.querySelector('.img').style.display = "initial"
+    } else {
+        document.querySelector("button").innerHTML = "Upload Image";
+        document.querySelector('h1').innerHTML = "";
+        document.querySelector('.img').style.display = "none"
+    }
+</script> 
 </head>
 <body>
     <div id="vanta">
@@ -176,6 +187,7 @@
                 window.location.href = "/output"
                 {% comment %} document.querySelector('h1').innerHTML = "Number of persons: {{total_faces}}"; {% endcomment %}
                 document.querySelector("button").innerHTML = "Reset";
+                document.querySelector(".abc").innerHTML = "Face Detection Application";
                 {% comment %} document.querySelector('.img').style.display = "initial" {% endcomment %}
                 // change label of button to Upload 
                 {% comment %} let input = document.createElement('input');
@@ -190,16 +202,7 @@
                 f = 0
             }
         }
-        if ({{flag}} === 1) {
-            document.querySelector('h1').innerHTML = "Number of persons: {{total_faces}}";
-            document.querySelector("button").innerHTML = "Reset";
-            document.querySelector('.img').style.display = "initial"
-        } else {
-            document.querySelector("button").innerHTML = "Upload Image";
-            document.querySelector('h1').innerHTML = "";
-            document.querySelector('.img').style.display = "none"
-        }
-    </script> 
+       
     </script> 
 </body>
 </html>
