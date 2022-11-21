@@ -1,17 +1,21 @@
 from http.client import HTTPResponse
 from django.shortcuts import render,HttpResponse
+from pathlib import Path
+import os
+
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 def detect():
     import cv2
 
-    face_cascade = cv2.CascadeClassifier('/media/hardik/49F9-340F/Final_project/DjangoProjectFinal/static/haarcascade_frontalface_alt.xml')
+    face_cascade = cv2.CascadeClassifier(os.path.join(BASE_DIR,'static/haarcascade_frontalface_alt_tree.xml'))
     import tkinter as tk
     from tkinter import filedialog
 
     root = tk.Tk()
     root.withdraw()
 
-    file = filedialog.askopenfilename(initialdir='/media/hardik/49F9-340F/Final_project/DjangoProjectFinal/static', title="Select An Image", filetypes=(("jpg files", "*.jpg"), ("jpeg files", "*.jpeg*"), ("png files", "*.png")))
+    file = filedialog.askopenfilename(initialdir=os.path.join(BASE_DIR,'static'), title="Select An Image", filetypes=(("jpg files", "*.jpg"), ("jpeg files", "*.jpeg*"), ("png files", "*.png")))
     root.destroy()
     image = cv2.imread(file)
     # image = cv2.imread("/media/hardik/49F9-340F/Final_project/DjangoProjectFinal/static/test_image3.jpg")
@@ -20,7 +24,7 @@ def detect():
     faces = face_cascade.detectMultiScale(grayImage)
     
     if len(faces) == 0:
-        return "No faces found"
+        return 0
     
     else:
         print("Number of faces detected: " + str(faces.shape[0]))
@@ -32,7 +36,7 @@ def detect():
         cv2.putText(image, "Number of faces detected: " + str(faces.shape[0]), (0,image.shape[0] -10), cv2.FONT_HERSHEY_TRIPLEX, 0.5,  (0,0,0), 1)
     
         # cv2.imshow('Image with faces',image)
-        cv2.imwrite("/home/hardik/Face-Detection-Minor1/static/out.jpeg", image)  
+        cv2.imwrite(os.path.join(BASE_DIR,"static/out.jpeg"), image)  
         cv2.waitKey(0)
         cv2.destroyAllWindows()
     return total_faces
