@@ -33,7 +33,7 @@
     
         font-size: 5vw;
         font-family: "Cyrene";
-        color:#ffa500 ;
+        color:#24b8fd ;
         position: absolute;
         top: 5%;
     }
@@ -48,7 +48,7 @@
         height: 30px;
         border-radius: 200px;
         border-width: 1px;
-        background-color: rgb(244 63 94);
+        background-color: rgb(95, 208, 223);
     
     }
     h2{
@@ -114,65 +114,8 @@
         font-family:"Cyrene";
         color: rgb(107, 17, 234);
     }
-</style>
-<script>
-    if ({{flag}} === 1) {
-        document.querySelector('h1').innerHTML = "Number of persons: {{total_faces}}";
-        document.querySelector("button").innerHTML = "Reset";
-        document.querySelector('.img').style.display = "initial"
-    } else {
-        document.querySelector("button").innerHTML = "Upload Image";
-        document.querySelector('h1').innerHTML = "";
-        document.querySelector('.img').style.display = "none"
-    }
-</script> 
-</head>
-<body>
-    <div id="vanta">
-    <h1 class="abc">Face Detection Application</h1>
-    <button onclick=toggle()>Upload Image</button>
-    <h1></h1>
-    <div class="img">
-        <img src="static/out.jpeg" alt="" srcset="">
-    </div>
-    <div id="about">
-        <h2 class="hhh">About Application</h2>
-        <h5>Lorem ipsum dolor sit amet. <br>
-            Lorem ipsum dolor sit amet. <br>
-            Lorem ipsum dolor sit amet. <br>
-            Lorem ipsum dolor sit amet. <br>
-            Lorem ipsum dolor sit amet. <br>
-            Lorem ipsum dolor sit amet. <br>
-            Lorem ipsum dolor sit amet. <br>
-            Lorem ipsum dolor sit amet.<br>
-            Lorem ipsum dolor sit amet. 
-        </h5>
-    </div> 
-  
-            
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/0.146.0/three.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
+    </style>
     <script>
-        VANTA.NET({
-          el: "#vanta",
-          mouseControls: true,
-          touchControls: true,
-          gyroControls: false,
-          minHeight: 200.00,
-          minWidth: 200.00,
-          scale: .50,
-          scaleMobile: 1.00,
-         maxDistance: 19.00,
-         spacing: 15.00,
-         color: '#ffa500',
-         backgroundColor: "#15171b",
-    
-
-         
-        })
-        </script>
-         <script>
         let f = 0;
         function toggle() {
             if(f === 0) {
@@ -187,7 +130,7 @@
                 window.location.href = "/output"
                 {% comment %} document.querySelector('h1').innerHTML = "Number of persons: {{total_faces}}"; {% endcomment %}
                 document.querySelector("button").innerHTML = "Reset";
-                document.querySelector(".abc").innerHTML = "Face Detection Application";
+                {% comment %} document.querySelector(".abc").innerHTML = "Face Detection Application"; {% endcomment %}
                 {% comment %} document.querySelector('.img').style.display = "initial" {% endcomment %}
                 // change label of button to Upload 
                 {% comment %} let input = document.createElement('input');
@@ -201,8 +144,60 @@
                 // clear the image and label
                 f = 0
             }
-        }
-       
+        }       
+    </script>
+</head>
+<body>
+    <div id="vanta">
+        <h1 class="abc">Face Detection Application</h1>
+        <button onclick=toggle()>Upload Image</button>
+        <h1></h1>
+        <div class="img">
+            <img src="static/out.jpeg" alt="" srcset="">
+        </div>
+        <script>
+            if ({{flag}} === 1) {
+                document.querySelector('h1').innerHTML = "Number of persons: {{total_faces}}";
+                document.querySelector("button").innerHTML = "Reset";
+                document.querySelector('.img').style.display = "initial"
+            } else {
+                document.querySelector("button").innerHTML = "Upload Image";
+                document.querySelector('h1').innerHTML = "";
+                document.querySelector('.img').style.display = "none"
+            }
+        </script> 
+        <div id="about">
+            <h2 class="hhh">About Application</h2>
+            <h5>Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet. <br>
+            Lorem ipsum dolor sit amet.<br>
+            Lorem ipsum dolor sit amet. 
+        </h5>
+    </div> 
+               
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r120/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanta/0.5.19/vanta.net.min.js"></script>
+    <script>
+        VANTA.NET({
+        el: "#vanta",
+        mouseControls: true,
+        touchControls: true,
+        gyroControls: false,
+        minHeight: 200,
+        minWidth: 200,
+        scale: 1.00,
+        scaleMobile: 1.00,
+        color: 0x60d2ff,
+        backgroundColor: 0x0,
+        points: 10.00,
+        maxDistance: 18.00,
+        spacing: 13.00
+        })
     </script> 
 </body>
 </html>
