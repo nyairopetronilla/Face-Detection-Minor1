@@ -8,7 +8,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 def detect():
     import cv2
 
-    face_cascade = cv2.CascadeClassifier(os.path.join(BASE_DIR,'static/haarcascade_frontalface_alt_tree.xml'))
+    face_cascade = cv2.CascadeClassifier(os.path.join(BASE_DIR,'static/haarcascade_frontalface_alt.xml'))
     import tkinter as tk
     from tkinter import filedialog
 
@@ -24,6 +24,7 @@ def detect():
     faces = face_cascade.detectMultiScale(grayImage)
     
     if len(faces) == 0:
+        cv2.imwrite(os.path.join(BASE_DIR,"static/out.jpeg"), image) 
         return 0
     
     else:
